@@ -46,7 +46,7 @@ Para el caso de copiar archivos entre sistemas operativos distintos la opción m
 Y que ejemplificaremos a continuación programando un cliente FTP básico con MonoDevelop.
 Ejecutamos MonoDevelop y diseñamos un formulario GTK# como se muestra en la siguiente imagen:
 </p>
-<img src="monoftp5.png">
+<img src="images/monoftp5.png">
 <p align="justify">
 Agregamos una nueva clase a nuestro proyecto con el nombre de FtpDAO, que es donde se encontrarán los métodos que darán la funcionalidad a nuestro formulario.
 En esta clase hacemos referencia a los siguientes ensamblados:
@@ -59,7 +59,7 @@ using System.Net;
 Y completamos la funcionalidad de la clase con los siguientes métodos.
 Para listar los archivos del directorio en el servidor, escribimos el siguiente método:
 </p>
-<img src="ObtenerListadoCode.png">
+<img src="images/ObtenerListadoCode.png">
 <p align="justify">
 Que nos regresa la lista de los archivos en un objeto ListStore que servirá de modelo para nuestra interfaz gráfica.
 Con el siguiente código establecemos un Uri con la dirección IP o Host y con el directorio al cuál accedemos.
@@ -95,26 +95,26 @@ using(StreamReader reader = new StreamReader(listResponse.GetResponseStream())){
 </pre>
 Podemos establecer el timeout de la respuesta en milisegundos con la propiedad timeout que tiene un valor predeterminado de 10000.
 La funcionalidad de descargar un archivo se la damos con el siguiente método.
-<img src="DescargarArchivoCode.png">
+<img src="images/DescargarArchivoCode.png">
 <p align="justify">
 Al construir y ejecutar la aplicación veremos los resultados como en las siguientes imágenes.
 
 Al oprimir el botón Aceptar después de teclear la IP, el directorio, el usuario y el password, si son válidos para el servidor se muestra el listado de los archivos.
 </p>
-<img src="monoftp1.png"/>
+<img src="images/monoftp1.png"/>
 <p align="justify">
 Si activamos la casilla de Listado detallado mostrará el listado detallado de los archivos.
 </p>
-<img src="monoftp2.png"/>
+<img src="images/monoftp2.png"/>
 <p align="justify">
 En caso de que ocurra un error en la conexión con el servidor, se mostrará un mensaje con la excepción correspondiente.
 </p>
-<img src="monoftp4.png"/>
+<img src="images/monoftp4.png"/>
 <p align="justify">
 Si seleccionamos un archivo de la lista de archivos y pulsamos el botón guardar se solicitará el archivo del servidor y se guardará en el disco duro en el directorio donde se ejecute la aplicación.
 </p>
-<img src="monoftp3.png"/>
+<img src="images/monoftp3.png"/>
 <p align="align">
 En la siguiente imagen la aplicación se conecta a un sitio público habilitando la casilla de autenticación anónima.
 </p>
-<img src="monoftp6.png">
+<img src="images/monoftp6.png">
