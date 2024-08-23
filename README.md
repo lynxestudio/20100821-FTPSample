@@ -59,7 +59,19 @@ using System.Net;
 Y completamos la funcionalidad de la clase con los siguientes métodos.
 Para listar los archivos del directorio en el servidor, escribimos el siguiente método:
 </p>
-<img src="images/ObtenerListadoCode.png">
+<pre>
+	_ftprequest = (FtpWebRequest)WebRequest.Create(serverUri);
+        _ftprequest.Credentials = creden;
+        _ftprequest.KeepAlive = true;
+        ListStore ls_l = new ListStore(typeof(string));
+        if(lsl)
+        _ftprequest.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+        else
+        _ftprequest.Method = WebRequestMethods.Ftp.ListDirectory;
+        _ftprequest.UseBinary = true;
+        _ftprequest.UsePassive = true;
+        _ftprequest.Timeout = 20000;
+</pre>
 <p align="justify">
 Que nos regresa la lista de los archivos en un objeto ListStore que servirá de modelo para nuestra interfaz gráfica.
 Con el siguiente código establecemos un Uri con la dirección IP o Host y con el directorio al cuál accedemos.
@@ -94,8 +106,6 @@ using(FtpWebResponse listResponse = (FtpWebResponse)_ftprequest.GetResponse()){
 using(StreamReader reader = new StreamReader(listResponse.GetResponseStream())){
 </pre>
 Podemos establecer el timeout de la respuesta en milisegundos con la propiedad timeout que tiene un valor predeterminado de 10000.
-La funcionalidad de descargar un archivo se la damos con el siguiente método.
-<img src="images/DescargarArchivoCode.png">
 <p align="justify">
 Al construir y ejecutar la aplicación veremos los resultados como en las siguientes imágenes.
 
